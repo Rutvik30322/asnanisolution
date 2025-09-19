@@ -1,14 +1,34 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+// Dynamically import dev-only plugin to avoid CommonJS issues in production
+let runtimeErrorOverlay: any = undefined;
+if (process.env.NODE_ENV !== "production") {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    runtimeErrorOverlay = require("@replit/vite-plugin-runtime-error-modal");
+  } catch {
+    // plugin not available or incompatible; ignore in production
+  }
+}
 import { fileURLToPath } from 'url';
 
 const _filename = typeof __filename !== 'undefined' ? __filename : fileURLToPath(import.meta.url);
 const _dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(_filename);
 
 export default defineConfig({
-  plugins: [react(), runtimeErrorOverlay()],
+  plugins: [
+    react(),
+    ...(runtimeErrorOverlay
+      ? [
+          (typeof runtimeErrorOverlay === "function"
+            ? runtimeErrorOverlay()
+            : runtimeErrorOverlay.default
+            ? runtimeErrorOverlay.default()
+            : [])
+        ]
+      : []),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(_dirname, "client", "src"),
