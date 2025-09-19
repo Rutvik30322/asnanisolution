@@ -1,57 +1,50 @@
-import { FileText, Search, UserCheck, Plane, Users, Building, Shield, Clock, HeartHandshake, Award, Globe, CheckCircle, Megaphone, List, Calendar, Users2, CheckSquare } from 'lucide-react';
+import { FileText, Search, UserCheck, Plane, Users, Building, Shield, Clock, HeartHandshake, Award, Globe, CheckCircle, Megaphone, List, Calendar, Users2, CheckSquare, ArrowRight, ArrowDown } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { Card, CardContent } from '@/components/ui/card';
 
 // 7-Step Recruitment Process based on the flowchart
 const processSteps = [
   {
-    title: "Identify Vacancy",
-    description: "Analyze and identify specific job openings and manpower requirements from client organizations",
-    icon: FileText,
+    title: "Understand Client Requirement",
+    description: "Carefully analyze the client's manpower needs, job roles, and required skills.",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276250/Businessman_Review_Agreement_Document_before_Signing_Contract__Jubilant_Stock_Photo_-_Image_of_corporate_business__282365754_muxzts.jpg",
     color: "bg-orange-500",
     stepNumber: 1
   },
   {
-    title: "Prepare Job Description & Person Specification",
-    description: "Create detailed job descriptions and person specifications based on client requirements and industry standards",
-    icon: Search,
-    color: "bg-blue-400",
+    title: "Candidate Sourcing",
+    description: "Identify and attract potential candidates through job portals, social media, and database.",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276410/Maximizing_Talent_Acquisition__Unleashing_the_Power_of_Talent_Management_and_Candidate_Sourcing_Software_dv4auy.jpg",
+    color: "bg-blue-500",
     stepNumber: 2
   },
   {
-    title: "Advertising the Vacancy",
-    description: "Strategic placement of job advertisements across multiple channels to reach qualified candidates",
-    icon: Megaphone,
-    color: "bg-orange-400",
+    title: "Documentation",
+    description: "Collect, verify, and organize candidate documents as per client and legal requirements.",
+    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=400&q=60",
+    color: "bg-purple-500",
     stepNumber: 3
   },
   {
-    title: "Managing the Response",
-    description: "Efficiently handle and organize candidate applications and responses for systematic processing",
-    icon: Users2,
-    color: "bg-purple-500",
+    title: "Interview",
+    description: "Coordinate interviews between candidates and clients for evaluation and selection.",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=60",
+    color: "bg-green-500",
     stepNumber: 4
   },
   {
-    title: "Short-listing",
-    description: "Carefully evaluate and shortlist the most suitable candidates based on qualifications and experience",
-    icon: List,
-    color: "bg-green-500",
+    title: "Visa Process",
+    description: "Assist selected candidates with medical tests, visa stamping, and travel formalities.",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276527/Best_Immigration_Consultant_Australia_Visa_Services_in_Australia_r5wraz.jpg",
+    color: "bg-pink-500",
     stepNumber: 5
   },
   {
-    title: "Arrange Interviews",
-    description: "Coordinate and schedule interviews between shortlisted candidates and client organizations",
-    icon: Calendar,
-    color: "bg-pink-500",
+    title: "Departure",
+    description: "Ensure smooth deployment of candidates by arranging tickets, orientation, and final handover.",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276666/Welcome_to_TravelTXS__Making_Travel_Enthusiastic_and_Affordable_vcagzm.jpg",
+    color: "bg-teal-500",
     stepNumber: 6
-  },
-  {
-    title: "Conducting Interview & Decision Making",
-    description: "Facilitate interview process and support final selection decisions for optimal candidate placement",
-    icon: CheckSquare,
-    color: "bg-green-400",
-    stepNumber: 7
   }
 ];
 
@@ -117,7 +110,6 @@ export function ProcessSection() {
           {/* Mobile: Single Column */}
           <div className="grid grid-cols-1 gap-4 sm:hidden">
             {processSteps.map((step, index) => {
-              const Icon = step.icon;
               return (
                 <div key={step.title} className="relative group">
                   <Card 
@@ -133,9 +125,14 @@ export function ProcessSection() {
                         <div className="absolute bottom-2 left-2 w-8 h-8 border border-primary/20 rounded-full"></div>
                       </div>
                       
-                      {/* Icon Container with Glow Effect */}
-                      <div className={`relative w-14 h-14 ${step.color} text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110`}>
-                        <Icon className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+                      {/* Image Container with Overlay */}
+                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <img 
+                          src={step.image} 
+                          alt={step.title}
+                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                        />
+                        
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
@@ -157,7 +154,7 @@ export function ProcessSection() {
                   {/* Mobile Arrow Connector */}
                   {index < processSteps.length - 1 && (
                     <div className="flex justify-center my-2">
-                      <div className="w-0.5 h-6 bg-gradient-to-b from-primary to-secondary"></div>
+                      <ArrowDown className="w-5 h-5 text-primary" />
                     </div>
                   )}
                 </div>
@@ -168,7 +165,6 @@ export function ProcessSection() {
           {/* Tablet: 2 Columns */}
           <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4 md:gap-6 mb-8">
             {processSteps.slice(0, 4).map((step, index) => {
-              const Icon = step.icon;
               return (
                 <div key={step.title} className="relative group">
                   <Card 
@@ -184,9 +180,14 @@ export function ProcessSection() {
                         <div className="absolute bottom-3 left-3 w-10 h-10 border border-primary/20 rounded-full"></div>
                       </div>
                       
-                      {/* Icon Container with Glow Effect */}
-                      <div className={`relative w-16 h-16 ${step.color} text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110`}>
-                        <Icon className="h-7 w-7 group-hover:rotate-12 transition-transform duration-300" />
+                      {/* Image Container with Overlay */}
+                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <img 
+                          src={step.image} 
+                          alt={step.title}
+                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                        />
+                        
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
@@ -207,10 +208,8 @@ export function ProcessSection() {
                   
                   {/* Tablet Arrow Connector */}
                   {index < 3 && (
-                    <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-primary">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/>
-                      </svg>
+                    <div className="hidden md:flex items-center absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
+                      <ArrowRight className="w-6 h-6" />
                     </div>
                   )}
                 </div>
@@ -218,10 +217,9 @@ export function ProcessSection() {
             })}
           </div>
 
-          {/* Tablet: 3 Columns for Bottom Row */}
-          <div className="hidden sm:grid lg:hidden grid-cols-3 gap-4 md:gap-6">
-            {processSteps.slice(4, 7).map((step, index) => {
-              const Icon = step.icon;
+          {/* Tablet: 2 Columns for Bottom Row */}
+          <div className="hidden sm:grid lg:hidden grid-cols-2 justify-center gap-4 md:gap-6">
+            {processSteps.slice(4, 6).map((step, index) => {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
@@ -237,9 +235,14 @@ export function ProcessSection() {
                         <div className="absolute bottom-3 left-3 w-10 h-10 border border-primary/20 rounded-full"></div>
                       </div>
                       
-                      {/* Icon Container with Glow Effect */}
-                      <div className={`relative w-16 h-16 ${step.color} text-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110`}>
-                        <Icon className="h-7 w-7 group-hover:rotate-12 transition-transform duration-300" />
+                      {/* Image Container with Overlay */}
+                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <img 
+                          src={step.image} 
+                          alt={step.title}
+                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                        />
+                        
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
@@ -259,11 +262,9 @@ export function ProcessSection() {
                   </Card>
                   
                   {/* Tablet Arrow Connector */}
-                  {index < 2 && (
-                    <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-primary">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/>
-                      </svg>
+                  {index < 1 && (
+                    <div className="hidden md:flex items-center absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
+                      <ArrowRight className="w-6 h-6" />
                     </div>
                   )}
                 </div>
@@ -271,12 +272,11 @@ export function ProcessSection() {
             })}
           </div>
 
-          {/* Desktop: 4-3 Grid Layout */}
+          {/* Desktop: 4-2 Grid Layout */}
           <div className="hidden lg:block">
             {/* Top Row - 4 Steps */}
             <div className="grid grid-cols-4 gap-6 xl:gap-8 mb-8">
               {processSteps.slice(0, 4).map((step, index) => {
-                const Icon = step.icon;
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
@@ -292,9 +292,14 @@ export function ProcessSection() {
                           <div className="absolute bottom-4 left-4 w-12 h-12 border border-primary/20 rounded-full"></div>
                         </div>
                         
-                        {/* Icon Container with Glow Effect */}
-                        <div className={`relative w-20 h-20 xl:w-24 xl:h-24 ${step.color} text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110`}>
-                          <Icon className="h-10 w-10 xl:h-12 xl:w-12 group-hover:rotate-12 transition-transform duration-300" />
+                        {/* Image Container with Overlay */}
+                        <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                          <img 
+                            src={step.image} 
+                            alt={step.title}
+                            className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          />
+                          
                           <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         
@@ -326,10 +331,9 @@ export function ProcessSection() {
               })}
             </div>
 
-            {/* Bottom Row - 3 Steps */}
-            <div className="grid grid-cols-3 gap-6 xl:gap-8">
-              {processSteps.slice(4, 7).map((step, index) => {
-                const Icon = step.icon;
+            {/* Bottom Row - 2 Steps */}
+            <div className="grid grid-cols-2 gap-6 xl:gap-8 justify-center max-w-3xl mx-auto">
+              {processSteps.slice(4, 6).map((step, index) => {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
@@ -345,9 +349,14 @@ export function ProcessSection() {
                           <div className="absolute bottom-4 left-4 w-12 h-12 border border-primary/20 rounded-full"></div>
                         </div>
                         
-                        {/* Icon Container with Glow Effect */}
-                        <div className={`relative w-20 h-20 xl:w-24 xl:h-24 ${step.color} text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110`}>
-                          <Icon className="h-10 w-10 xl:h-12 xl:w-12 group-hover:rotate-12 transition-transform duration-300" />
+                        {/* Image Container with Overlay */}
+                        <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                          <img 
+                            src={step.image} 
+                            alt={step.title}
+                            className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          />
+                          
                           <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         
@@ -367,7 +376,7 @@ export function ProcessSection() {
                     </Card>
                     
                     {/* Horizontal Arrow connector for bottom row */}
-                    {index < 2 && (
+                    {index < 1 && (
                       <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/>
@@ -379,7 +388,7 @@ export function ProcessSection() {
               })}
             </div>
 
-            {/* Vertical Flow Connectors - Removed Blue Color */}
+            {/* Vertical Flow Connectors */}
             <div className="relative">
               {/* Top to Bottom Flow */}
               <div className="absolute left-1/4 top-0 w-0.5 h-8 bg-gradient-to-b from-gray-300 to-transparent"></div>

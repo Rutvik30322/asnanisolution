@@ -14,17 +14,6 @@ const positionsData: Record<string, Section> = {
     color: "from-red-500 to-red-600",
     groups: [
       {
-        title: "👔 White Collar",
-        positions: [
-          "QA / QC Engineer / Supervisor / Inspector",
-          "Welding Engineer / Inspector",
-          "Painting Engineer / Supervisor / Inspector",
-          "Safety Officer (Specialized in Mechanical)",
-          "All Trades Supervisor / Foreman / Leadman",
-          "Welding Foreman / Supervisor"
-        ]
-      },
-      {
         title: "🛠️ Blue Collar",
         positions: [
           "Fitter – Pipe / Structural / Mechanical",
@@ -41,6 +30,17 @@ const positionsData: Record<string, Section> = {
           "Sheet Metal Fitter",
           "Grinder / Gas Cutter"
         ]
+      },
+      {
+        title: "👔 White Collar",
+        positions: [
+          "QA / QC Engineer / Supervisor / Inspector",
+          "Welding Engineer / Inspector",
+          "Painting Engineer / Supervisor / Inspector",
+          "Safety Officer (Specialized in Mechanical)",
+          "All Trades Supervisor / Foreman / Leadman",
+          "Welding Foreman / Supervisor"
+        ]
       }
     ]
   },
@@ -49,18 +49,7 @@ const positionsData: Record<string, Section> = {
     icon: BrainCircuit,
     color: "from-blue-500 to-blue-600",
     groups: [
-      {
-        title: "👔 White Collar (Professional / Supervisory)",
-        positions: [
-          "QA / QC Engineer / Inspector",
-          "Supervisor / Foreman / Leadman – Electrical / Instrument",
-          "Electrical Engineer",
-          "Instrumentation Engineer",
-          "Draftsman – Electrical / Instrumentation",
-          "Planning Engineer – E&I",
-          "Testing & Commissioning Engineer"
-        ]
-      },
+     
       {
         title: "🔧 Blue Collar (Skilled / Semi-skilled)",
         positions: [
@@ -73,6 +62,18 @@ const positionsData: Record<string, Section> = {
           "Cable Jointer",
           "Lineman",
           "Electrical Helpers"
+        ]
+      },
+      {
+        title: "👔 White Collar (Professional / Supervisory)",
+        positions: [
+          "QA / QC Engineer / Inspector",
+          "Supervisor / Foreman / Leadman – Electrical / Instrument",
+          "Electrical Engineer",
+          "Instrumentation Engineer",
+          "Draftsman – Electrical / Instrumentation",
+          "Planning Engineer – E&I",
+          "Testing & Commissioning Engineer"
         ]
       }
     ]
@@ -120,16 +121,7 @@ const positionsData: Record<string, Section> = {
     icon: Fan,
     color: "from-cyan-500 to-cyan-600",
     groups: [
-      {
-        title: "👔 White Collar (Specialized / Supervisory)",
-        positions: [
-          "HVAC Engineer / Supervisor / Inspector",
-          "Insulation Supervisor / Foreman / Leadman",
-          "A/C Plant Supervisor",
-          "HVAC Supervisor / Foreman / Leadman",
-          "Duct Supervisor / Foreman / Leadman"
-        ]
-      },
+     
       {
         title: "🔧 Blue Collar (Skilled / Semi-skilled)",
         positions: [
@@ -144,7 +136,18 @@ const positionsData: Record<string, Section> = {
           "Insulate",
           "Helpers – Air Conditioning / Duct"
         ]
-      }
+      },
+       {
+        title: "👔 White Collar (Specialized / Supervisory)",
+        positions: [
+          "HVAC Engineer / Supervisor / Inspector",
+          "Insulation Supervisor / Foreman / Leadman",
+          "A/C Plant Supervisor",
+          "HVAC Supervisor / Foreman / Leadman",
+          "Duct Supervisor / Foreman / Leadman"
+        ]
+      },
+      
     ]
   },
   hospitality: {
@@ -152,22 +155,7 @@ const positionsData: Record<string, Section> = {
     icon: ConciergeBell,
     color: "from-pink-500 to-pink-600",
     groups: [
-      {
-        title: "🧑‍💼 White Collar",
-        positions: [
-          "F&B Manager",
-          "Floor Supervisor",
-          "Receptionist",
-          "Accountant",
-          "Captains (Restaurant)",
-          "Time Keeper",
-          "Security Officer",
-          "Laundry Manager",
-          "Housekeeping Supervisor",
-          "Event Coordinator",
-          "Concierge"
-        ]
-      },
+     
       {
         title: "🛠️ Blue Collar",
         positions: [
@@ -195,6 +183,22 @@ const positionsData: Record<string, Section> = {
           "Gym Trainer / Fitness Instructor",
           "Porter / Baggage Handler"
         ]
+      },
+      {
+        title: "🧑‍💼 White Collar",
+        positions: [
+          "F&B Manager",
+          "Floor Supervisor",
+          "Receptionist",
+          "Accountant",
+          "Captains (Restaurant)",
+          "Time Keeper",
+          "Security Officer",
+          "Laundry Manager",
+          "Housekeeping Supervisor",
+          "Event Coordinator",
+          "Concierge"
+        ]
       }
     ]
   },
@@ -203,14 +207,7 @@ const positionsData: Record<string, Section> = {
     icon: Scissors,
     color: "from-purple-500 to-purple-600",
     groups: [
-      {
-        title: "👔 White Collar (Specialized / Supervisory)",
-        positions: [
-          "Cutter Master (Gents & Ladies)",
-          "Upholstry Personnel",
-          "Juki Machine Mechanic"
-        ]
-      },
+     
       {
         title: "🔧 Blue Collar (Skilled / Semi-skilled)",
         positions: [
@@ -223,7 +220,16 @@ const positionsData: Record<string, Section> = {
           "Sofa Seat Cover Maker",
           "Sofa Cushion Maker"
         ]
-      }
+      },
+       {
+        title: "👔 White Collar (Specialized / Supervisory)",
+        positions: [
+          "Cutter Master (Gents & Ladies)",
+          "Upholstry Personnel",
+          "Juki Machine Mechanic"
+        ]
+      },
+      
     ]
   }
 
@@ -285,21 +291,29 @@ export function PositionsSection() {
                   <div className="p-6">
                     {'groups' in section ? (
                       <div className="grid md:grid-cols-2 gap-6">
-                        {section.groups.map((group) => (
-                          <div key={group.title}>
-                            <div className="flex items-center mb-2">
-                              <h4 className="text-base font-bold text-gray-800">{group.title}</h4>
-                            </div>
-                            <div className="grid md:grid-cols-2 gap-4">
-                              {group.positions.map((position: string) => (
-                                <div key={position} className="flex items-center">
-                                  <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                                  <span className="text-sm">{position}</span>
-                                </div>
-                              ))}
-                            </div>
+                        
+                      {section.groups.map((group, gi) => (
+                        <div
+                          key={group.title}
+                          className={`${
+                            gi === 0
+                              ? 'md:pr-6 md:border-r md:border-gray-300'
+                              : 'md:pl-6'
+                          }`}
+                        >
+                          <div className="flex items-center mb-2">
+                            <h4 className="text-base font-bold text-gray-800">{group.title}</h4>
                           </div>
-                        ))}
+                          <div className="grid md:grid-cols-2 gap-4">
+                            {group.positions.map((position: string) => (
+                              <div key={position} className="flex items-center">
+                                <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                                <span className="text-sm">{position}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                       </div>
                     ) : (
                       <div className={`grid ${(section as SectionWithPositions).positions.length > 14 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>

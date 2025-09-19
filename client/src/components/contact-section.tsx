@@ -208,7 +208,7 @@ export function ContactSection() {
                       <SelectItem value="hospitality">Hospitality</SelectItem>
                       <SelectItem value="hvac">HVAC</SelectItem>
                       <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                      <SelectItem value="facility-management">Facility Management</SelectItem>
+                    
                     </SelectContent>
                   </Select>
                 </div>
