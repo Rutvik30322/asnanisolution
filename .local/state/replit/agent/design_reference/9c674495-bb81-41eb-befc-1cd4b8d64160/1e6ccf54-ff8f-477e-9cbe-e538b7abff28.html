@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asnani HR Solutions - Premier Manpower Consultancy Since 2011</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#1e40af',
+                        'secondary': '#3b82f6',
+                        'accent': '#f59e0b',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.7s ease-out',
+                        'slide-in-right': 'slideInRight 0.7s ease-out',
+                        'counter': 'counter 2s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animated {
+            opacity: 0;
+        }
+        .animated.animate {
+            opacity: 1;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .industry-card {
+            transition: all 0.3s ease;
+        }
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+        .position-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .position-section.expanded {
+            max-height: 1000px;
+        }
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item.active {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">
+                        <i class="fas fa-users mr-2"></i>
+                        ASNANI HR SOLUTIONS
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#industries" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Industries</a>
+                        <a href="#positions" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Positions</a>
+                        <a href="#process" class="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Process</a>
+                        <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">About</a>
+                <a href="#industries" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">Industries</a>
+                <a href="#positions" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">Positions</a>
+                <a href="#process" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary">Process</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
+        <!-- Professional construction team working on a building project -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animated fade-in-up">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        Premier <span class="text-accent">Manpower</span><br>
+                        Consultancy Solutions
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                        Connecting talent with opportunity since 2011. Specializing in Gulf/Middle East recruitment across construction, oil & gas, hospitality, and more.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-accent text-gray-900 px-8 py-3 rounded-lg font-poppins font-semibold hover:bg-yellow-500 transition-colors inline-flex items-center justify-center">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Get Started
+                        </a>
+                        <a href="#about" class="border-2 border-white text-white px-8 py-3 rounded-lg font-poppins font-semibold hover:bg-white hover:text-primary transition-colors inline-flex items-center justify-center">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Animated Stats -->
+                <div class="animated fade-in-right grid grid-cols-2 gap-6">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-accent mb-2">
+                            <span id="years-counter">0</span>+
+                        </div>
+                        <div class="text-sm opacity-90">Years of Excellence</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-accent mb-2">
+                            <span id="clients-counter">0</span>+
+                        </div>
+                        <div class="text-sm opacity-90">Satisfied Clients</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-accent mb-2">
+                            <span id="placements-counter">0</span>+
+                        </div>
+                        <div class="text-sm opacity-90">Successful Placements</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-accent mb-2">
+                            <span id="industries-counter">0</span>+
+                        </div>
+                        <div class="text-sm opacity-90">Industries Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white hover:text-accent transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animated slide-in-left">
+                    <!-- Modern office meeting with diverse professionals -->
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Professional team meeting" class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+                <div class="animated slide-in-right">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        Positioned Among the <span class="text-primary">Top Recruitment</span> Service Providers
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Since 2011, Asnani HR Solution Manpower Consultancy has established itself as a premier recruitment service provider across various domains including oil, refinery, petrochemical, civil industries, mechanical, and many others.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We have developed a large database of candidates with diverse skills and qualifications. Our firm utilizes sophisticated information technology to ensure easy accessibility and flexibility in retrieving information within minutes.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-globe text-3xl text-primary mb-2"></i>
+                            <h4 class="font-semibold">Global Reach</h4>
+                            <p class="text-sm text-gray-600">Gulf/Middle East Focus</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-database text-3xl text-primary mb-2"></i>
+                            <h4 class="font-semibold">Large Database</h4>
+                            <p class="text-sm text-gray-600">Skilled Candidates</p>
+                        </div>
+                    </div>
+                    <p class="text-lg text-gray-600">
+                        We maintain excellent relationships with consulates, airlines, and local government authorities, ensuring quick completion of formalities and mobilization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section id="industries" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animated fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Industries We <span class="text-primary">Serve</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Comprehensive recruitment solutions across multiple sectors
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Construction Industry -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- Construction workers in hard hats at a building site -->
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Construction workers" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hard-hat text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">Construction</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Civil engineers, QA/QC supervisors, skilled trades, and construction laborers for major projects.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Civil Engineer</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Mason</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Carpenter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oil & Gas Industry -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- Oil and gas workers at an industrial facility -->
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Oil and gas workers" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-oil-well text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">Oil & Gas</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Specialized personnel for petrochemical, refinery, and mechanical projects in the energy sector.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Welder</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Fitter</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">QA/QC Engineer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hospitality Industry -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- Hotel staff providing excellent service -->
+                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Hotel hospitality staff" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-concierge-bell text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">Hospitality</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Hotel management, F&B services, housekeeping, and specialized hospitality roles.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Chef</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Waiter</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Receptionist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HVAC Industry -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- HVAC technician working on air conditioning systems -->
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="HVAC technician" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-fan text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">HVAC</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">HVAC engineers, technicians, duct fabricators, and air conditioning specialists.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">HVAC Engineer</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">A/C Mechanic</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Duct Fitter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manufacturing Industry -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- Manufacturing workers in a modern factory -->
+                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Manufacturing workers" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-industry text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">Manufacturing</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Production specialists, quality control experts, and skilled manufacturing personnel.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Technician</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Operator</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Supervisor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facility Management -->
+                <div class="industry-card bg-white rounded-xl shadow-lg overflow-hidden animated fade-in">
+                    <!-- Professional cleaning and facility management team -->
+                    <img src="https://pixabay.com/get/gefc1a468e100347b5621d8549eef169ab2a12ab02da9f33ab466afc41bebade1314fc3fe5cd62ae2b8054b9ebcd86d8baf541394d3028f85b7063a93ccbd82f0_1280.jpg" alt="Facility management team" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-broom text-3xl text-accent mr-3"></i>
+                            <h3 class="text-xl font-bold">Facility Management</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Housekeeping staff, cleaners, maintenance technicians, and facility management professionals.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Cleaner</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Supervisor</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Technician</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions We Cover -->
+    <section id="positions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animated fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Positions We <span class="text-primary">Cover</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Comprehensive workforce solutions across all skill levels
+                </p>
+            </div>
+
+            <!-- Construction Positions -->
+            <div class="mb-8 animated fade-in">
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-t-lg cursor-pointer" onclick="toggleSection('construction')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fas fa-hard-hat text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold">Construction</h3>
+                        </div>
+                        <i class="fas fa-chevron-down transition-transform" id="construction-arrow"></i>
+                    </div>
+                </div>
+                <div id="construction-positions" class="position-section bg-gray-50 border border-gray-200 rounded-b-lg">
+                    <div class="p-6 grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Civil Engineer</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> QA QC Engineer / Supervisor</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Estimator</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Land Surveyor</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Quantity Surveyor</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> All Trades Supervisor / Foreman</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Lab Technician (Concrete)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mason (Tiles / Marble / Block)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Marble / Granite Cutter</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Painter (Brush / Spray)</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Shuttering Carpenter</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Scaffolder</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Carpenter (Finishing / Furniture)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Furniture Polisher</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Glass Cutter</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Gypsum Board Carpenter</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Steel Fixer</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Aluminium Fitter / Fabricator</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Civil Labourers</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Plumber</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oil & Gas Positions -->
+            <div class="mb-8 animated fade-in">
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-t-lg cursor-pointer" onclick="toggleSection('oilgas')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fas fa-oil-well text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold">Oil & Gas / Mechanical Projects</h3>
+                        </div>
+                        <i class="fas fa-chevron-down transition-transform" id="oilgas-arrow"></i>
+                    </div>
+                </div>
+                <div id="oilgas-positions" class="position-section bg-gray-50 border border-gray-200 rounded-b-lg">
+                    <div class="p-6 grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> QA / QC Engineer / Supervisor</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Welding Engineer / Supervisor (CSWIP / AWS)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Painting Engineer Supervisor (BGAS)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Safety Officer (Mechanical Specialized)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> All Trades Supervisor / Foreman</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Fabricator - Pipe / Steel / Structural</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Fitter - Pipe / Structural / Mechanical</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Welder - Argon / Arc / MIG / Structural</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mechanical Helpers</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Rigger</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Sand Blaster / Spray Painter</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Scaffolder</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Rotating Equipment Technician</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Sheet Metal Fabricator</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Steel Erector</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Millwright Fitter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospitality Positions -->
+            <div class="mb-8 animated fade-in">
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-t-lg cursor-pointer" onclick="toggleSection('hospitality')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fas fa-concierge-bell text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold">Hospitality</h3>
+                        </div>
+                        <i class="fas fa-chevron-down transition-transform" id="hospitality-arrow"></i>
+                    </div>
+                </div>
+                <div id="hospitality-positions" class="position-section bg-gray-50 border border-gray-200 rounded-b-lg">
+                    <div class="p-6 grid md:grid-cols-3 gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> F & B Manager</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Security Officer</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Laundry Manager</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Floor Supervisor</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Accountant</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Cashier</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Receptionist</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Cook</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Beautician</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Time Keeper</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Swimming Pool Attendant</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Drivers</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Hair Dresser</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Chefs</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Roti Maker</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Waiters</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Stewards</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Baker</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Bell Boy</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Carpet Fixer</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Cleaners</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HVAC Positions -->
+            <div class="mb-8 animated fade-in">
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-t-lg cursor-pointer" onclick="toggleSection('hvac')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fas fa-fan text-2xl mr-4"></i>
+                            <h3 class="text-xl font-bold">HVAC</h3>
+                        </div>
+                        <i class="fas fa-chevron-down transition-transform" id="hvac-arrow"></i>
+                    </div>
+                </div>
+                <div id="hvac-positions" class="position-section bg-gray-50 border border-gray-200 rounded-b-lg">
+                    <div class="p-6 grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> HVAC Engineer</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> HVAC Supervisor / Foreman</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Duct Supervisor / Foreman</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Insulation Supervisor / Foreman</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> A/C Mechanic (Window / Split / Central)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> A/C Pipe Fabricator</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Duct Erector</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> HVAC Technician (Copper Brazing)</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Insulator</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Water Cooler Mechanic</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Duct Fabricator</div>
+                            <div class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Helpers - Air Conditioning / Duct</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Process -->
+    <section id="process" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animated fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Our <span class="text-primary">Recruitment Process</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Streamlined process ensuring quality placements
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="timeline-item bg-white p-6 rounded-xl shadow-lg text-center animated fade-in">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Requirement Analysis</h3>
+                    <p class="text-gray-600">Understanding client needs and job specifications in detail</p>
+                </div>
+
+                <div class="timeline-item bg-white p-6 rounded-xl shadow-lg text-center animated fade-in">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Candidate Sourcing</h3>
+                    <p class="text-gray-600">Leveraging our extensive database and network for qualified candidates</p>
+                </div>
+
+                <div class="timeline-item bg-white p-6 rounded-xl shadow-lg text-center animated fade-in">
+                    <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Screening & Selection</h3>
+                    <p class="text-gray-600">Rigorous evaluation process to ensure best fit candidates</p>
+                </div>
+
+                <div class="timeline-item bg-white p-6 rounded-xl shadow-lg text-center animated fade-in">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">4. Deployment</h3>
+                    <p class="text-gray-600">Complete mobilization support with documentation and travel</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white p-8 rounded-xl shadow-lg animated fade-in">
+                <h3 class="text-2xl font-bold text-center mb-8">Our Commitment</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <i class="fas fa-handshake text-4xl text-primary mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Quality Assurance</h4>
+                        <p class="text-gray-600">Rigorous screening ensures only qualified candidates</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-clock text-4xl text-primary mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Quick Turnaround</h4>
+                        <p class="text-gray-600">Fast processing with government and consulate relations</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-support text-4xl text-primary mb-4"></i>
+                        <h4 class="text-lg font-semibold mb-2">Ongoing Support</h4>
+                        <p class="text-gray-600">Continuous assistance throughout the deployment process</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animated fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Get In <span class="text-accent">Touch</span>
+                </h2>
+                <p class="text-xl opacity-90">
+                    Ready to find the perfect talent for your organization?
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="animated slide-in-left">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-2xl text-accent mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-lg">Head Office</h4>
+                                <p class="opacity-90">406 / 407 SAMAYAK STATUS, OPP. BANK OF BARODA, DIWALIPURA ROAD, VADODARA - 390007</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-2xl text-accent mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-lg">Phone Numbers</h4>
+                                <p class="opacity-90">MAHESH ASNANI</p>
+                                <p class="opacity-90">+91 95743 17700</p>
+                                <p class="opacity-90">+91 97243 11444</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-2xl text-accent mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-lg">Email</h4>
+                                <p class="opacity-90">hr@asnanihr.com</p>
+                                <p class="opacity-90">asnani.hr@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-accent text-gray-900 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-accent text-gray-900 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-accent text-gray-900 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="animated slide-in-right">
+                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">First Name</label>
+                                <input type="text" id="firstName" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-accent focus:bg-opacity-20">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Last Name</label>
+                                <input type="text" id="lastName" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-accent focus:bg-opacity-20">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-accent focus:bg-opacity-20">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Phone</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-accent focus:bg-opacity-20">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Industry</label>
+                            <select id="industry" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:border-accent focus:bg-opacity-20">
+                                <option value="" class="text-gray-900">Select Industry</option>
+                                <option value="construction" class="text-gray-900">Construction</option>
+                                <option value="oil-gas" class="text-gray-900">Oil & Gas</option>
+                                <option value="hospitality" class="text-gray-900">Hospitality</option>
+                                <option value="hvac" class="text-gray-900">HVAC</option>
+                                <option value="manufacturing" class="text-gray-900">Manufacturing</option>
+                                <option value="facility-management" class="text-gray-900">Facility Management</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-2 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:border-accent focus:bg-opacity-20" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent text-gray-900 px-6 py-3 rounded-lg font-poppins font-semibold hover:bg-yellow-500 transition-colors">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold text-accent mb-4">
+                        <i class="fas fa-users mr-2"></i>
+                        ASNANI HR
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Premier manpower consultancy since 2011, connecting talent with opportunity across Gulf/Middle East.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-accent transition-colors">Construction</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Oil & Gas</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Hospitality</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">HVAC</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-accent transition-colors">Recruitment</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Manpower Supply</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Consultation</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i>+91 95743 17700</p>
+                        <p><i class="fas fa-envelope mr-2"></i>hr@asnanihr.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>Vadodara, Gujarat</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Asnani HR Solutions. All rights reserved. | Designed with excellence for talent acquisition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Animated counters
+        (function() {
+            function animateCounter(element, target, duration = 2000) {
+                let current = 0;
+                const increment = target / (duration / 16);
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 16);
+            }
+
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const yearsCounter = document.getElementById('years-counter');
+                        const clientsCounter = document.getElementById('clients-counter');
+                        const placementsCounter = document.getElementById('placements-counter');
+                        const industriesCounter = document.getElementById('industries-counter');
+
+                        animateCounter(yearsCounter, 13);
+                        animateCounter(clientsCounter, 500);
+                        animateCounter(placementsCounter, 5000);
+                        animateCounter(industriesCounter, 6);
+
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const heroSection = document.querySelector('#home');
+            if (heroSection) {
+                counterObserver.observe(heroSection);
+            }
+        })();
+
+        // Scroll animations
+        (function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animated').forEach(el => {
+                observer.observe(el);
+            });
+        })();
+
+        // Position section toggle
+        function toggleSection(sectionName) {
+            const section = document.getElementById(`${sectionName}-positions`);
+            const arrow = document.getElementById(`${sectionName}-arrow`);
+            
+            if (section.classList.contains('expanded')) {
+                section.classList.remove('expanded');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other sections
+                document.querySelectorAll('.position-section').forEach(s => {
+                    s.classList.remove('expanded');
+                });
+                document.querySelectorAll('[id$="-arrow"]').forEach(a => {
+                    a.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked section
+                section.classList.add('expanded');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Contact form handling
+        (function() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // TODO: Implement form submission logic, API calls, and backend integration
+                // This would typically involve sending data to a server endpoint
+                
+                // Show success message (mockup behavior)
+                const button = form.querySelector('button[type="submit"]');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                button.disabled = true;
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.classList.remove('bg-green-500');
+                    form.reset();
+                }, 3000);
+            });
+        })();
+
+        // Timeline item hover effects
+        (function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.classList.add('active');
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[build]
+  base   = "client" # where package.json for the front-end lives
+  publish = "dist" # vite build output inside the base directory
+  command = "npm run build" # Netlify installs deps automatically
