@@ -11,10 +11,8 @@ if (process.env.NODE_ENV !== "production") {
     // plugin not available or incompatible; ignore in production
   }
 }
-import { fileURLToPath } from 'url';
-
-const _filename = typeof __filename !== 'undefined' ? __filename : fileURLToPath(import.meta.url);
-const _dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(_filename);
+// In bundled production code, __dirname is undefined; fallback to process.cwd()
+const _dirname = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
 
 export default defineConfig({
   plugins: [

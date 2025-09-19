@@ -5,6 +5,13 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
@@ -21,6 +28,56 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+
+// vite.config.ts
+var vite_config_exports = {};
+__export(vite_config_exports, {
+  default: () => vite_config_default
+});
+var import_vite, import_plugin_react, import_path, runtimeErrorOverlay, _dirname, vite_config_default;
+var init_vite_config = __esm({
+  "vite.config.ts"() {
+    "use strict";
+    import_vite = require("vite");
+    import_plugin_react = __toESM(require("@vitejs/plugin-react"), 1);
+    import_path = __toESM(require("path"), 1);
+    runtimeErrorOverlay = void 0;
+    if (process.env.NODE_ENV !== "production") {
+      try {
+        runtimeErrorOverlay = require("@replit/vite-plugin-runtime-error-modal");
+      } catch {
+      }
+    }
+    _dirname = typeof __dirname !== "undefined" ? __dirname : process.cwd();
+    vite_config_default = (0, import_vite.defineConfig)({
+      plugins: [
+        (0, import_plugin_react.default)(),
+        ...runtimeErrorOverlay ? [
+          typeof runtimeErrorOverlay === "function" ? runtimeErrorOverlay() : runtimeErrorOverlay.default ? runtimeErrorOverlay.default() : []
+        ] : []
+      ],
+      resolve: {
+        alias: {
+          "@": import_path.default.resolve(_dirname, "client", "src"),
+          "@shared": import_path.default.resolve(_dirname, "shared"),
+          "@assets": import_path.default.resolve(_dirname, "attached_assets")
+        }
+      },
+      root: import_path.default.resolve(_dirname, "client"),
+      build: {
+        outDir: import_path.default.resolve(_dirname, "client", "dist"),
+        // stays inside client
+        emptyOutDir: true
+      },
+      server: {
+        fs: {
+          strict: true,
+          deny: ["**/.*"]
+        }
+      }
+    });
+  }
+});
 
 // server/index.ts
 var import_config = require("dotenv/config");
@@ -378,45 +435,8 @@ var import_express = __toESM(require("express"), 1);
 var import_fs = __toESM(require("fs"), 1);
 var import_path2 = __toESM(require("path"), 1);
 var import_vite2 = require("vite");
-
-// vite.config.ts
-var import_vite = require("vite");
-var import_plugin_react = __toESM(require("@vitejs/plugin-react"), 1);
-var import_path = __toESM(require("path"), 1);
-var import_vite_plugin_runtime_error_modal = __toESM(require("@replit/vite-plugin-runtime-error-modal"), 1);
-var import_url = require("url");
-var import_meta = {};
-var _filename = typeof __filename !== "undefined" ? __filename : (0, import_url.fileURLToPath)(import_meta.url);
-var _dirname = typeof __dirname !== "undefined" ? __dirname : import_path.default.dirname(_filename);
-var vite_config_default = (0, import_vite.defineConfig)({
-  plugins: [(0, import_plugin_react.default)(), (0, import_vite_plugin_runtime_error_modal.default)()],
-  resolve: {
-    alias: {
-      "@": import_path.default.resolve(_dirname, "client", "src"),
-      "@shared": import_path.default.resolve(_dirname, "shared"),
-      "@assets": import_path.default.resolve(_dirname, "attached_assets")
-    }
-  },
-  root: import_path.default.resolve(_dirname, "client"),
-  build: {
-    outDir: import_path.default.resolve(_dirname, "client", "dist"),
-    // stays inside client
-    emptyOutDir: true
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"]
-    }
-  }
-});
-
-// server/vite.ts
 var import_nanoid = require("nanoid");
-var import_url2 = require("url");
-var import_meta2 = {};
-var __filename2 = (0, import_url2.fileURLToPath)(import_meta2.url);
-var __dirname2 = import_path2.default.dirname(__filename2);
+var __dirname2 = typeof __dirname2 !== "undefined" ? __dirname2 : process.cwd();
 var viteLogger = (0, import_vite2.createLogger)();
 function log(message, source = "express") {
   const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
@@ -432,8 +452,9 @@ async function setupVite(app2, server) {
     hmr: { server },
     allowedHosts: true
   };
+  const viteConfig = await Promise.resolve().then(() => (init_vite_config(), vite_config_exports)).then((m) => m.default).catch(() => ({}));
   const vite = await (0, import_vite2.createServer)({
-    ...vite_config_default,
+    ...viteConfig,
     configFile: false,
     customLogger: {
       ...viteLogger,

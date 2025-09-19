@@ -3,12 +3,9 @@ import fs from "fs";
 import path from "path";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../vite.config";
 import { nanoid } from "nanoid";
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// In production bundle import.meta.url is undefined, use cwd fallback
+const __dirname = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
 
 const viteLogger = createLogger();
 
@@ -29,6 +26,9 @@ export async function setupVite(app: Express, server: Server) {
     hmr: { server },
     allowedHosts: true as const,
   };
+
+  // Dynamically import the Vite config to avoid requiring it in production bundle
+  const viteConfig = await import("../vite.config.js").then(m => m.default).catch(() => ({}));
 
   const vite = await createViteServer({
     ...viteConfig,
