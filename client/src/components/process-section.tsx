@@ -113,7 +113,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-80 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
@@ -168,7 +168,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-72 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-80 ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
@@ -207,7 +207,7 @@ export function ProcessSection() {
                   </Card>
                   
                   {/* Tablet Arrow Connector */}
-                  {index < 3 && (
+                  {index < 2 && (
                     <div className="hidden md:flex items-center absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
                       <ArrowRight className="w-6 h-6" />
                     </div>
@@ -223,7 +223,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-72 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 {
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${(index + 4) * 100}ms` }}
@@ -262,7 +262,7 @@ export function ProcessSection() {
                   </Card>
                   
                   {/* Tablet Arrow Connector */}
-                  {index < 1 && (
+                  {index < 2 && (
                     <div className="hidden md:flex items-center absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
                       <ArrowRight className="w-6 h-6" />
                     </div>
@@ -274,9 +274,9 @@ export function ProcessSection() {
 
           {/* Desktop: 4-2 Grid Layout */}
           <div className="hidden lg:block">
-            {/* Top Row - 4 Steps */}
-            <div className="grid grid-cols-4 gap-6 xl:gap-8 mb-8">
-              {processSteps.slice(0, 4).map((step, index) => {
+            {/* Top Row - 3 Steps */}
+            <div className="grid grid-cols-3 gap-6 xl:gap-8 mb-8">
+              {processSteps.slice(0, 3).map((step, index) => {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
@@ -319,7 +319,7 @@ export function ProcessSection() {
                     </Card>
                     
                     {/* Horizontal Arrow connector for top row */}
-                    {index < 3 && (
+                    {index < 2 && (
                       <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/>
@@ -332,8 +332,8 @@ export function ProcessSection() {
             </div>
 
             {/* Bottom Row - 2 Steps */}
-            <div className="grid grid-cols-2 gap-6 xl:gap-8 justify-center max-w-3xl mx-auto">
-              {processSteps.slice(4, 6).map((step, index) => {
+            <div className="grid grid-cols-3 gap-6 xl:gap-8">
+              {processSteps.slice(3, 6).map((step, index) => {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
@@ -376,7 +376,7 @@ export function ProcessSection() {
                     </Card>
                     
                     {/* Horizontal Arrow connector for bottom row */}
-                    {index < 1 && (
+                    {index < 2 && (
                       <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/>

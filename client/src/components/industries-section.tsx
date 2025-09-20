@@ -1,16 +1,9 @@
-import { HardHat, Zap, ConciergeBell, Fan, Factory, Sparkles } from 'lucide-react';
+import { HardHat, Zap, ConciergeBell, Fan, Factory, Sparkles,  } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { Card, CardContent } from '@/components/ui/card';
 
 const industries = [
-  {
-    title: "Construction",
-    icon: HardHat,
-    description: "Civil Engineer/ Supervisor/ Inspector, QA/QC supervisors, skilled trades, and construction laborers for major projects.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
-    tags: ["Civil Engineer/ Supervisor/ Inspector", "Mason", "Carpenter"]
-  },
-  {
+   {
     title: "Oil & Gas",
     icon: Zap,
     description: "Specialized personnel for petrochemical, refinery, and mechanical projects in the energy sector.",
@@ -18,11 +11,18 @@ const industries = [
     tags: ["Welder", "Fitter", "QA/QC Engineer/ Supervisor/ Inspector"]
   },
   {
-    title: "Hospitality",
-    icon: ConciergeBell,
-    description: "Hotel management, F&B services, housekeeping, and specialized hospitality roles.",
-    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
-    tags: ["Chef", "Waiter", "Receptionist"]
+    title: "Electrical & Instrumentation",
+    icon: Sparkles,
+    description: "Experienced electrical and instrumentation engineers, technicians, and supervisors supporting power, oil & gas and industrial facilities.",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758280123/How_to_Troubleshoot_and_Repair_a_Faulty_Power_Transformer_amnxzd.jpg",
+    tags: ["Electrical Engineer/ Supervisor/ Inspector", "Instrumentation Engineer/ Supervisor/ Inspector", "PLC Engineer/ Supervisor/ Inspector"]
+  },
+  {
+    title: "Construction",
+    icon: HardHat,
+    description: "Civil Engineer/ Supervisor/ Inspector, QA/QC supervisors, skilled trades, and construction laborers for major projects.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
+    tags: ["Civil Engineer/ Supervisor/ Inspector", "Mason", "Carpenter"]
   },
   {
     title: "HVAC",
@@ -32,19 +32,21 @@ const industries = [
     tags: ["HVAC Engineer/ Supervisor/ Inspector", "A/C Mechanic", "Duct Fitter"]
   },
   {
+    title: "Hospitality",
+    icon: ConciergeBell,
+    description: "Hotel management, F&B services, housekeeping, and specialized hospitality roles.",
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
+    tags: ["Chef", "Waiter", "Receptionist"]
+  },
+ 
+  {
     title: "Manufacturing",
     icon: Factory,
     description: "Production specialists, quality control experts, and skilled manufacturing personnel.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
     tags: ["Technician", "Operator", "Supervisor"]
   },
-  {
-    title: "Facility Management",
-    icon: Sparkles,
-    description: "Housekeeping staff, cleaners, QA QC Engineer/ Supervisor/ Inspector, and facility management professionals.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80",
-    tags: ["Cleaner", "Supervisor"]
-  }
+  
 ];
 
 export function IndustriesSection() {
