@@ -203,11 +203,13 @@ export function ContactSection() {
                       <SelectValue placeholder="Select Industry" />
                     </SelectTrigger>
                     <SelectContent>
+                       <SelectItem value="oil-gas">Oil & Gas / Mechanical Projects</SelectItem>
+                       <SelectItem value="construction">Electrical & Instrumentation</SelectItem>
                       <SelectItem value="construction">Construction</SelectItem>
-                      <SelectItem value="oil-gas">Oil & Gas</SelectItem>
+                   <SelectItem value="hvac">HVAC</SelectItem>
                       <SelectItem value="hospitality">Hospitality</SelectItem>
-                      <SelectItem value="hvac">HVAC</SelectItem>
-                      <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                     
+                      <SelectItem value="manufacturing">Tailoring & Upholstery</SelectItem>
                     
                     </SelectContent>
                   </Select>
