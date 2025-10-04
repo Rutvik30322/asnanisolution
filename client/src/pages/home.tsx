@@ -5,6 +5,8 @@ import { IndustriesSection } from '@/components/industries-section';
 import { PositionsSection } from '@/components/positions-section';
 import { ClientsSection } from '@/components/clients-section';
 import { ProcessSection } from '@/components/process-section';
+import { BlogSection } from '@/components/blog-section';
+import { FAQSection } from '@/components/faq-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
 
@@ -18,6 +20,8 @@ export default function Home() {
       <PositionsSection />
       <ClientsSection />
       <ProcessSection />
+      <BlogSection />
+      <FAQSection />
       <ContactSection />
       <Footer />
     </div>

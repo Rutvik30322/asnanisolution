@@ -7,42 +7,42 @@ const processSteps = [
   {
     title: "Understand Client Requirement",
     description: "Carefully analyze the client's manpower needs, job roles, and required skills.",
-    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276250/Businessman_Review_Agreement_Document_before_Signing_Contract__Jubilant_Stock_Photo_-_Image_of_corporate_business__282365754_muxzts.jpg",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496536/one_h5u5xc.png",
     color: "bg-orange-500",
     stepNumber: 1
   },
   {
     title: "Candidate Sourcing",
     description: "Identify and attract potential candidates through job portals, social media, and database.",
-    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276410/Maximizing_Talent_Acquisition__Unleashing_the_Power_of_Talent_Management_and_Candidate_Sourcing_Software_dv4auy.jpg",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496639/two_uuvcsf.png",
     color: "bg-blue-500",
     stepNumber: 2
   },
   {
     title: "Documentation",
     description: "Collect, verify, and organize candidate documents as per client and legal requirements.",
-    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=400&q=60",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496723/three_ak8r6e.png",
     color: "bg-purple-500",
     stepNumber: 3
   },
   {
     title: "Interview",
     description: "Coordinate interviews between candidates and clients for evaluation and selection.",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=60",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496814/four_xo7sjd.png",
     color: "bg-green-500",
     stepNumber: 4
   },
   {
     title: "Visa Process",
     description: "Assist selected candidates with medical tests, visa stamping, and travel formalities.",
-    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276527/Best_Immigration_Consultant_Australia_Visa_Services_in_Australia_r5wraz.jpg",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496882/five_jzns9u.png",
     color: "bg-pink-500",
     stepNumber: 5
   },
   {
     title: "Departure",
     description: "Ensure smooth deployment of candidates by arranging tickets, orientation, and final handover.",
-    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1758276666/Welcome_to_TravelTXS__Making_Travel_Enthusiastic_and_Affordable_vcagzm.jpg",
+    image: "https://res.cloudinary.com/shivshaktisite/image/upload/v1759496972/six_ghdmdy.png",
     color: "bg-teal-500",
     stepNumber: 6
   }
@@ -108,17 +108,17 @@ export function ProcessSection() {
         {/* Process Flow - Fully Responsive Grid Layout */}
         <div className="mb-16 lg:mb-20">
           {/* Mobile: Single Column */}
-          <div className="grid grid-cols-1 gap-4 sm:hidden">
+          <div className="grid grid-cols-1 gap-7 sm:hidden">
             {processSteps.map((step, index) => {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[460px] ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <CardContent className="p-4 relative overflow-hidden h-full flex flex-col justify-between">
+                    <CardContent className="p-5 relative overflow-hidden h-full flex flex-col justify-between">
                       {/* Background Pattern */}
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                         <div className="absolute top-2 right-2 w-16 h-16 border border-primary/20 rounded-full"></div>
@@ -126,11 +126,11 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
                         />
                         
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -143,7 +143,7 @@ export function ProcessSection() {
                       
                       <div className="flex-1 flex flex-col justify-center">
                         <h3 className="text-base font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300 line-clamp-2">{step.title}</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-4">{step.description}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-6">{step.description}</p>
                       </div>
                       
                       {/* Hover Indicator */}
@@ -163,17 +163,17 @@ export function ProcessSection() {
           </div>
 
           {/* Tablet: 2 Columns */}
-          <div className="hidden sm:grid lg:hidden grid-cols-2 gap-4 md:gap-6 mb-8">
+          <div className="hidden sm:grid lg:hidden grid-cols-2 gap-7 md:gap-9 mb-12">
             {processSteps.slice(0, 4).map((step, index) => {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-80 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <CardContent className="p-4 md:p-6 relative overflow-hidden h-full flex flex-col justify-between">
+                    <CardContent className="p-5 md:p-6 relative overflow-hidden h-full flex flex-col justify-between">
                       {/* Background Pattern */}
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                         <div className="absolute top-3 right-3 w-20 h-20 border border-primary/20 rounded-full"></div>
@@ -181,11 +181,11 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
                         />
                         
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -198,7 +198,7 @@ export function ProcessSection() {
                       
                       <div className="flex-1 flex flex-col justify-center">
                         <h3 className="text-sm md:text-base font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300 line-clamp-2">{step.title}</h3>
-                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">{step.description}</p>
+                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-5">{step.description}</p>
                       </div>
                       
                       {/* Hover Indicator */}
@@ -218,17 +218,15 @@ export function ProcessSection() {
           </div>
 
           {/* Tablet: 2 Columns for Bottom Row */}
-          <div className="hidden sm:grid lg:hidden grid-cols-2 justify-center gap-4 md:gap-6">
+          <div className="hidden sm:grid lg:hidden grid-cols-2 justify-center gap-7 md:gap-9">
             {processSteps.slice(4, 6).map((step, index) => {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 {
-                      isVisible ? 'animate-fade-in' : 'opacity-0'
-                    }`}
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[420px] ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                     style={{ animationDelay: `${(index + 4) * 100}ms` }}
                   >
-                    <CardContent className="p-4 md:p-6 relative overflow-hidden h-full flex flex-col justify-between">
+                    <CardContent className="p-5 md:p-6 relative overflow-hidden h-full flex flex-col justify-between">
                       {/* Background Pattern */}
                       <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                         <div className="absolute top-3 right-3 w-20 h-20 border border-primary/20 rounded-full"></div>
@@ -236,11 +234,11 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-24 h-24 rounded-full mx-auto mb-3 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
                         />
                         
                         <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -253,7 +251,7 @@ export function ProcessSection() {
                       
                       <div className="flex-1 flex flex-col justify-center">
                         <h3 className="text-sm md:text-base font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300 line-clamp-2">{step.title}</h3>
-                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-3">{step.description}</p>
+                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-5">{step.description}</p>
                       </div>
                       
                       {/* Hover Indicator */}
@@ -275,17 +273,17 @@ export function ProcessSection() {
           {/* Desktop: 4-2 Grid Layout */}
           <div className="hidden lg:block">
             {/* Top Row - 3 Steps */}
-            <div className="grid grid-cols-3 gap-6 xl:gap-8 mb-8">
+            <div className="grid grid-cols-3 gap-9 xl:gap-12 mb-12">
               {processSteps.slice(0, 3).map((step, index) => {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
-                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-80 ${
+                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
                         isVisible ? 'animate-fade-in' : 'opacity-0'
                       }`}
                       style={{ animationDelay: `${index * 150}ms` }}
                     >
-                      <CardContent className="p-6 xl:p-8 relative overflow-hidden h-full flex flex-col justify-between">
+                      <CardContent className="p-7 xl:p-8 relative overflow-hidden h-full flex flex-col justify-between">
                         {/* Background Pattern */}
                         <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                           <div className="absolute top-4 right-4 w-24 h-24 border border-primary/20 rounded-full"></div>
@@ -293,11 +291,11 @@ export function ProcessSection() {
                         </div>
                         
                         {/* Image Container with Overlay */}
-                        <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <div className="relative w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                           <img 
                             src={step.image} 
                             alt={step.title}
-                            className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                            className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
                           />
                           
                           <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -310,7 +308,7 @@ export function ProcessSection() {
                         
                         <div className="flex-1 flex flex-col justify-center">
                           <h3 className="text-lg xl:text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300 line-clamp-2">{step.title}</h3>
-                          <p className="text-gray-600 text-sm xl:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-4">{step.description}</p>
+                          <p className="text-gray-600 text-sm xl:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-6">{step.description}</p>
                         </div>
                         
                         {/* Hover Indicator */}
@@ -332,17 +330,17 @@ export function ProcessSection() {
             </div>
 
             {/* Bottom Row - 2 Steps */}
-            <div className="grid grid-cols-3 gap-6 xl:gap-8">
+            <div className="grid grid-cols-3 gap-9 xl:gap-12">
               {processSteps.slice(3, 6).map((step, index) => {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
-                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-80 ${
+                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
                         isVisible ? 'animate-fade-in' : 'opacity-0'
                       }`}
                       style={{ animationDelay: `${(index + 4) * 150}ms` }}
                     >
-                      <CardContent className="p-6 xl:p-8 relative overflow-hidden h-full flex flex-col justify-between">
+                      <CardContent className="p-7 xl:p-8 relative overflow-hidden h-full flex flex-col justify-between">
                         {/* Background Pattern */}
                         <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                           <div className="absolute top-4 right-4 w-24 h-24 border border-primary/20 rounded-full"></div>
@@ -350,11 +348,11 @@ export function ProcessSection() {
                         </div>
                         
                         {/* Image Container with Overlay */}
-                        <div className="relative w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <div className="relative w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                           <img 
                             src={step.image} 
                             alt={step.title}
-                            className="w-24 h-24 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                            className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
                           />
                           
                           <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -367,7 +365,7 @@ export function ProcessSection() {
                         
                         <div className="flex-1 flex flex-col justify-center">
                           <h3 className="text-lg xl:text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300 line-clamp-2">{step.title}</h3>
-                          <p className="text-gray-600 text-sm xl:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-4">{step.description}</p>
+                          <p className="text-gray-600 text-sm xl:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-6">{step.description}</p>
                         </div>
                         
                         {/* Hover Indicator */}

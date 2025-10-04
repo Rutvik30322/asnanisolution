@@ -436,7 +436,7 @@ var import_fs = __toESM(require("fs"), 1);
 var import_path2 = __toESM(require("path"), 1);
 var import_vite2 = require("vite");
 var import_nanoid = require("nanoid");
-var __dirname2 = typeof __dirname2 !== "undefined" ? __dirname2 : process.cwd();
+var __dirnameFallback = typeof __dirname !== "undefined" ? __dirname : process.cwd();
 var viteLogger = (0, import_vite2.createLogger)();
 function log(message, source = "express") {
   const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
@@ -471,8 +471,7 @@ async function setupVite(app2, server) {
     const url = req.originalUrl;
     try {
       const clientTemplate = import_path2.default.resolve(
-        __dirname2,
-        "..",
+        __dirnameFallback,
         "client",
         "index.html"
       );

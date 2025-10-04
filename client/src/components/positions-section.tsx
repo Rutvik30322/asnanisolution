@@ -243,85 +243,93 @@ export function PositionsSection() {
     setExpandedSection(expandedSection === sectionName ? null : sectionName);
   };
 
-  return (
-    <section id="positions" ref={ref} className="py-20 bg-white">
+	return (
+		<section id="positions" ref={ref} className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Positions We <span className="text-primary">Cover</span>
-          </h2>
-          <p className="text-xl text-gray-600">
-            Comprehensive workforce solutions across all skill levels
-          </p>
-        </div>
+				<div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+					<div className="inline-flex items-center gap-2 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">Open Roles</div>
+					<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+						Positions We <span className="text-primary">Cover</span>
+					</h2>
+					<p className="text-xl text-gray-600">
+						Comprehensive workforce solutions across all skill levels
+					</p>
+				</div>
 
         <div className="space-y-8">
           {Object.entries(positionsData).map(([key, section], index) => {
             const Icon = section.icon;
             const isExpanded = expandedSection === key;
             
-            return (
+					const totalPositions = 'groups' in section
+						? section.groups.reduce((sum, g) => sum + g.positions.length, 0)
+						: (section as SectionWithPositions).positions.length;
+
+					return (
               <div 
                 key={key}
                 className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div 
-                  className={`bg-gradient-to-r ${section.color} text-white p-6 rounded-t-lg cursor-pointer hover:shadow-lg transition-all duration-300`}
-                  onClick={() => toggleSection(key)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <Icon className="h-8 w-8 mr-4" />
-                      <h3 className="text-xl font-bold">{section.title}</h3>
-                    </div>
-                    <ChevronDown 
-                      className={`h-6 w-6 transition-transform duration-300 ${
-                        isExpanded ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </div>
-                </div>
+							<div 
+								className={`bg-gradient-to-r ${section.color} text-white p-6 rounded-xl cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300`}
+								onClick={() => toggleSection(key)}
+							>
+								<div className="flex items-center justify-between">
+									<div className="flex items-center">
+										<Icon className="h-8 w-8 mr-4" />
+										<h3 className="text-xl font-bold">{section.title}</h3>
+									</div>
+									<div className="flex items-center gap-3">
+										<span className="bg-white/15 text-white text-xs font-semibold px-2.5 py-1 rounded-full">{totalPositions} roles</span>
+										<ChevronDown 
+											className={`h-6 w-6 transition-transform duration-300 ${
+												isExpanded ? 'rotate-180' : ''
+											}`}
+										/>
+									</div>
+								</div>
+							</div>
                 
                 <div 
                   className={`position-section bg-gray-50 border border-gray-200 rounded-b-lg overflow-hidden transition-all duration-500 ${
                     isExpanded ? 'expanded' : ''
                   }`}
                 >
-                  <div className="p-6">
+							<div className="p-6">
                     {'groups' in section ? (
-                      <div className="grid md:grid-cols-2 gap-6">
+									<div className="grid md:grid-cols-2 gap-6">
                         
                       {section.groups.map((group, gi) => (
                         <div
                           key={group.title}
                           className={`${
                             gi === 0
-                              ? 'md:pr-6 md:border-r md:border-gray-300'
-                              : 'md:pl-6'
+														? 'md:pr-6 md:border-r md:border-gray-200'
+														: 'md:pl-6'
                           }`}
                         >
                           <div className="flex items-center mb-2">
                             <h4 className="text-base font-bold text-gray-800">{group.title}</h4>
                           </div>
-                          <div className="grid md:grid-cols-2 gap-4">
+												<div className="grid md:grid-cols-2 gap-3">
                             {group.positions.map((position: string) => (
-                              <div key={position} className="flex items-center">
-                                <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                                <span className="text-sm">{position}</span>
-                              </div>
+														<div key={position} className="flex items-center bg-white rounded-md border border-gray-200 px-3 py-2 hover:shadow-sm transition">
+															<Check className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
+															<span className="text-sm text-gray-800">{position}</span>
+														</div>
                             ))}
                           </div>
                         </div>
                       ))}
                       </div>
                     ) : (
-                      <div className={`grid ${(section as SectionWithPositions).positions.length > 14 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
+									<div className={`grid ${(section as SectionWithPositions).positions.length > 14 ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-3`}>
                         {(section as SectionWithPositions).positions.map((position: string, posIndex: number) => (
-                          <div key={position} className="flex items-center">
-                            <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                            <span className="text-sm">{position}</span>
-                          </div>
+											<div key={position} className="flex items-center bg-white rounded-md border border-gray-200 px-3 py-2 hover:shadow-sm transition">
+												<Check className="h-4 w-4 text-green-600 mr-2 flex-shrink-0" />
+												<span className="text-sm text-gray-800">{position}</span>
+											</div>
                         ))}
                       </div>
                     )}

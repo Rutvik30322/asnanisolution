@@ -5,7 +5,8 @@ import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
 import { nanoid } from "nanoid";
 // In production bundle import.meta.url is undefined, use cwd fallback
-const __dirname = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
+// -const __dirname = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
+const __dirnameFallback = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
 
 const viteLogger = createLogger();
 
@@ -50,8 +51,8 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        __dirname,
-        "..",
+        __dirnameFallback,
+       
         "client",
         "index.html",
       );
