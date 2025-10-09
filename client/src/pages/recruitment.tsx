@@ -105,32 +105,59 @@ export default function RecruitmentPage() {
           </div>
         )}
 
-        {/* Positions Table (exact layout like image) */}
+        {/* Positions: Mobile-friendly cards on small screens, table on md+ */}
         {isGrouped ? (
-          <div className="overflow-x-auto bg-white rounded-xl shadow-sm ring-1 ring-gray-200">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  {tableColumns.map((col: any, i: number) => (
-                    <th key={i} className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
-                      {col.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {Array.from({ length: maxRows }).map((_, rowIdx) => (
-                  <tr key={rowIdx} className="bg-white hover:bg-gray-50">
-                    {tableColumns.map((col: any, colIdx: number) => (
-                      <td key={colIdx} className="px-6 py-3 text-sm text-gray-800">
-                        {col.positions[rowIdx] || ''}
-                      </td>
+          <>
+            {/* Mobile cards */}
+            <div className="space-y-6 md:hidden">
+              {tableColumns.map((col: any, i: number) => (
+                <Card key={i} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="px-5 pt-5 pb-4 bg-gradient-to-r from-gray-50 to-white">
+                      <h3 className="text-base font-semibold text-gray-900">{col.name}</h3>
+                      <p className="text-xs text-gray-500 mt-1">{col.positions.length} positions</p>
+                    </div>
+                    <div className="px-5 pb-5">
+                      <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
+                        {col.positions.map((pos: string, idx: number) => (
+                          <div key={idx} className="flex items-start gap-2 rounded-lg border border-gray-200 px-3 py-2 bg-white">
+                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-gray-800">{pos}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden md:block overflow-x-auto bg-white rounded-xl shadow-sm ring-1 ring-gray-200">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    {tableColumns.map((col: any, i: number) => (
+                      <th key={i} className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                        {col.name}
+                      </th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {Array.from({ length: maxRows }).map((_, rowIdx) => (
+                    <tr key={rowIdx} className="bg-white hover:bg-gray-50">
+                      {tableColumns.map((col: any, colIdx: number) => (
+                        <td key={colIdx} className="px-6 py-3 text-sm text-gray-800">
+                          {col.positions[rowIdx] || ''}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         ) : (
           // Fallback for simple categories (no grouped positions)
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
