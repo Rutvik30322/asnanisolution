@@ -281,7 +281,7 @@ export function PositionsSection() {
 										<h3 className="text-xl font-bold">{section.title}</h3>
 									</div>
 									<div className="flex items-center gap-3">
-										<span className="bg-white/15 text-white text-xs font-semibold px-2.5 py-1 rounded-full">{totalPositions} roles</span>
+										{/* <span className="bg-white/15 text-white text-xs font-semibold px-2.5 py-1 rounded-full">{totalPositions} roles</span> */}
 										<ChevronDown 
 											className={`h-6 w-6 transition-transform duration-300 ${
 												isExpanded ? 'rotate-180' : ''

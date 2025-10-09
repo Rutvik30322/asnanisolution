@@ -26,6 +26,7 @@ export function Navigation() {
               <button onClick={() => scrollToSection('home')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</button>
               <button onClick={() => scrollToSection('about')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">About</button>
               <button onClick={() => scrollToSection('industries')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Industries</button>
+              <button onClick={() => scrollToSection('recruitment')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Requirement</button>
               <button onClick={() => scrollToSection('positions')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Positions</button>
               <button onClick={() => scrollToSection('clients')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Clients</button>
               <button onClick={() => scrollToSection('process')} className="hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Process</button>
@@ -51,6 +52,7 @@ export function Navigation() {
             <button onClick={() => scrollToSection('home')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Home</button>
             <button onClick={() => scrollToSection('about')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">About</button>
             <button onClick={() => scrollToSection('industries')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Industries</button>
+            <button onClick={() => scrollToSection('recruitment')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Requirement</button>
             <button onClick={() => scrollToSection('positions')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Positions</button>
             <button onClick={() => scrollToSection('clients')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Clients</button>
             <button onClick={() => scrollToSection('process')} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary w-full text-left">Process</button>

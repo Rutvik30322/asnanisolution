@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation';
 import { HeroSection } from '@/components/hero-section';
 import { AboutSection } from '@/components/about-section';
 import { IndustriesSection } from '@/components/industries-section';
+import { RecruitmentSection } from '@/components/recruitment-section';
 import { PositionsSection } from '@/components/positions-section';
 import { ClientsSection } from '@/components/clients-section';
 import { ProcessSection } from '@/components/process-section';
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <IndustriesSection />
+      <RecruitmentSection />
       <PositionsSection />
       <ClientsSection />
       <ProcessSection />

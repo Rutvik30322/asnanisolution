@@ -75,18 +75,7 @@ export function AboutSection() {
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">Industries We Serve</h4>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1 text-gray-700">
-                  <li>Oil & Gas</li>
-                  <li>Construction & Infrastructure</li>
-                  <li>Mechanical & Electrical</li>
-                  <li>Civil Engineering</li>
-                  <li>HVAC & Facility Management</li>
-                  <li>Hospitality & Services</li>
-                  <li>Manufacturing & Maintenance</li>
-                </ul>
-              </div>
+              
 
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">About Our Founder & Managing Director – Mr. Mahesh Asnani</h4>
