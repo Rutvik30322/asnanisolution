@@ -137,7 +137,12 @@ export function RecruitmentOptionsSection() {
               We provide tailored recruitment services for specialized requirements across all industries
             </p>
             <button 
-              onClick={() => setLocation('/contact')}
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300"
             >
               Contact Us Today

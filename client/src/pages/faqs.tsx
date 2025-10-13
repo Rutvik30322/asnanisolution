@@ -240,7 +240,7 @@ export default function FAQs() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

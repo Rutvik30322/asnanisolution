@@ -195,7 +195,7 @@ export default function Insights() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -219,7 +219,7 @@ export default function RecruitmentPage() {
         </div>
 
         {/* Contact CTA */}
-        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white text-center">
+        {/* <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white text-center">
           <h3 className="text-3xl font-bold mb-4">Ready to Start Your Recruitment Process?</h3>
           <p className="text-xl mb-8 opacity-90">
             Contact us today to discuss your manpower requirements
@@ -236,7 +236,7 @@ export default function RecruitmentPage() {
             
            
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

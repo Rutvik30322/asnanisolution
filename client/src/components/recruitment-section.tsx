@@ -135,12 +135,12 @@ export function RecruitmentSection() {
             <p className="text-lg mb-6 opacity-90">
               We provide tailored recruitment services for specialized requirements across all industries
             </p>
-            <button 
+            {/* <button 
               onClick={() => setLocation('/contact')}
               className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300"
             >
               Contact Us Today
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
