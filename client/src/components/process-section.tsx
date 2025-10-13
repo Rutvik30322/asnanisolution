@@ -113,7 +113,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[460px] ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[520px] ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
@@ -126,14 +126,14 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-48 h-48 rounded-xl mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-48 h-48 object-cover object-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                         />
                         
-                        <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
                       {/* Step Badge with Animation */}
@@ -168,7 +168,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[480px] ${
                       isVisible ? 'animate-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
@@ -181,14 +181,14 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-48 h-48 rounded-xl mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-48 h-48 object-cover object-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                         />
                         
-                        <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
                       {/* Step Badge with Animation */}
@@ -223,7 +223,7 @@ export function ProcessSection() {
               return (
                 <div key={step.title} className="relative group">
                   <Card 
-                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[420px] ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                    className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[500px] ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                     style={{ animationDelay: `${(index + 4) * 100}ms` }}
                   >
                     <CardContent className="p-5 md:p-6 relative overflow-hidden h-full flex flex-col justify-between">
@@ -234,14 +234,14 @@ export function ProcessSection() {
                       </div>
                       
                       {/* Image Container with Overlay */}
-                      <div className="relative w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                      <div className="relative w-48 h-48 rounded-xl mx-auto mb-5 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          className="w-48 h-48 object-cover object-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                         />
                         
-                        <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       
                       {/* Step Badge with Animation */}
@@ -278,7 +278,7 @@ export function ProcessSection() {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
-                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
+                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[480px] ${
                         isVisible ? 'animate-fade-in' : 'opacity-0'
                       }`}
                       style={{ animationDelay: `${index * 150}ms` }}
@@ -291,14 +291,14 @@ export function ProcessSection() {
                         </div>
                         
                         {/* Image Container with Overlay */}
-                        <div className="relative w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <div className="relative w-52 h-52 rounded-xl mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
                           <img 
                             src={step.image} 
                             alt={step.title}
-                            className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                            className="w-52 h-52 object-cover object-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                           />
                           
-                          <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         
                         {/* Step Badge with Animation */}
@@ -335,7 +335,7 @@ export function ProcessSection() {
                 return (
                   <div key={step.title} className="relative group">
                     <Card 
-                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-96 ${
+                      className={`timeline-item text-center cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-transparent hover:border-primary/20 hover:shadow-2xl h-[480px] ${
                         isVisible ? 'animate-fade-in' : 'opacity-0'
                       }`}
                       style={{ animationDelay: `${(index + 4) * 150}ms` }}
@@ -348,14 +348,14 @@ export function ProcessSection() {
                         </div>
                         
                         {/* Image Container with Overlay */}
-                        <div className="relative w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110 flex-shrink-0">
+                        <div className="relative w-52 h-52 rounded-xl mx-auto mb-6 overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
                           <img 
                             src={step.image} 
                             alt={step.title}
-                            className="w-32 h-32 object-cover object-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                            className="w-52 h-52 object-cover object-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                           />
                           
-                          <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         
                         {/* Step Badge with Animation */}

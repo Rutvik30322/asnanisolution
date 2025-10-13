@@ -1,128 +1,81 @@
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
-import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'wouter';
+
+type BlogCard = {
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+};
+
+const blogCards: BlogCard[] = [
+  {
+    title: 'How to Get a Job in the Gulf or Russia',
+    excerpt: 'Step-by-step guide from industry choice to deployment.',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+    slug: 'how-to-get-a-job-gulf-russia',
+  },
+  {
+    title: 'Why Choose Us – Asnani HR Solutions',
+    excerpt: 'Experience, network and transparent, end‑to‑end recruitment.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop',
+    slug: 'why-choose-us-asnani',
+  },
+  {
+    title: 'Most In‑Demand Jobs in 2025',
+    excerpt: 'Gulf and Russia roles hiring Indian professionals now.',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop',
+    slug: 'in-demand-jobs-2025',
+  },
+  {
+    title: 'Visa Process – Gulf & Russia Guide',
+    excerpt: 'Offer to deployment: clear steps and tips for candidates.',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop',
+    slug: 'visa-process-gulf-russia',
+  },
+];
 
 export function BlogSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="blog" ref={ref} className="py-16 bg-gradient-to-b from-white to-gray-50">
+    <section id="blog" ref={ref} className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-10 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="inline-flex items-center gap-2 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
-            <span>New</span>
-            <span className="opacity-90">Insights</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Insights & Guidance
-          </h2>
-          <p className="text-gray-600 mt-2">Overseas careers, processes, and opportunities</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Why Choose Our Insights</h2>
+          <p className="text-gray-600 mt-2">Curated articles to help candidates and clients make better decisions</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          <Card className={`border-2 hover:border-primary/20 hover:shadow-lg transition-all ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Blog 1: How to Get a Job in the Gulf or Russia from India – Step by Step Guide</h3>
-              <p className="text-gray-700 mb-3">For decades, the Gulf region has been a dream destination for Indian professionals... Russia is also emerging as a strong destination.</p>
-              <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-                <li>
-                  <span className="font-semibold">Identify the Right Industry</span>
-                  <div className="text-gray-700">
-                    <div>Gulf: Oil & Gas, Civil Construction, Mechanical, Hospitality.</div>
-                    <div>Russia: Oil & Gas, Infrastructure, Manufacturing, Skilled Trades.</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {blogCards.map((card, index) => (
+            <Link key={card.slug} href={`/insights/${card.slug}`}>
+              <a className={`group block relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 80}ms` }}>
+                <div className="h-72 md:h-80">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                  {/* Bottom gradient to improve text contrast */}
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                </div>
+                <div className="absolute left-0 right-0 bottom-0 text-white pointer-events-none">
+                  <svg className="w-full h-24 text-gray-900" viewBox="0 0 500 150" preserveAspectRatio="none">
+                    <path d="M0.00,49.98 C150.00,150.00 349.74,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" className="fill-gray-900/95 group-hover:fill-primary transition-colors duration-300"></path>
+                  </svg>
+                  <div className="-mt-14 px-5 pb-5 pointer-events-auto">
+                    <h3 className="text-xl font-bold">{card.title}</h3>
+                    <p className="text-sm opacity-90 mt-1 line-clamp-2">{card.excerpt}</p>
+                    <span className="inline-block mt-3 text-xs font-semibold tracking-wide uppercase">Read more →</span>
                   </div>
-                </li>
-                <li>
-                  <span className="font-semibold">Prepare a Professional CV</span>
-                  <div>Highlight skills and certifications (CSWIP, IWE, NACE/AMPP, BGAS, NEBOSH, ASNT, etc.). Keep it 2–3 pages.</div>
-                </li>
-                <li>
-                  <span className="font-semibold">Apply Through a Trusted Recruitment Agency</span>
-                  <div>Use licensed agencies like Asnani HR Solutions for verified roles.</div>
-                </li>
-                <li>
-                  <span className="font-semibold">Attend Interviews</span>
-                  <div>Gulf: emphasize project experience. Russia: check adaptability and technical efficiency.</div>
-                </li>
-                <li>
-                  <span className="font-semibold">Complete Documentation & Visa Process</span>
-                  <div>Gulf: Offer → Medical → Visa → Travel. Russia: Offer → Medical → Work Permit & Visa → Travel.</div>
-                </li>
-                <li>
-                  <span className="font-semibold">Travel & Start Your Career Abroad</span>
-                </li>
-              </ol>
-              <p className="text-gray-800 mt-4"><span className="font-semibold">Conclusion:</span> With the right preparation, securing a job in the Gulf or Russia is achievable. We’ve placed 50,000+ candidates overseas.</p>
-              <div className="mt-4">
-                <a href="#contact" className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors text-sm font-semibold">Contact Us</a>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className={`border-2 hover:border-primary/20 hover:shadow-lg transition-all ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Blog 2: Why Choose Us – Asnani HR Solution</h3>
-              <p className="text-gray-700 mb-3">Recruitment is about building careers and strong businesses. Here’s why companies and candidates choose us:</p>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                <li><span className="font-semibold">13+ Years of Recruitment Expertise</span> across Gulf and Russia.</li>
-                <li><span className="font-semibold">25+ Trusted Clients Worldwide</span> with long-term partnerships.</li>
-                <li><span className="font-semibold">50,000+ Successful Placements</span> across roles and industries.</li>
-                <li><span className="font-semibold">Strong Candidate Database</span> of verified CVs for fast sourcing.</li>
-                <li><span className="font-semibold">End-to-End Recruitment Support</span> from requirements to deployment.</li>
-                <li><span className="font-semibold">Transparent & Reliable Process</span> with compliant, ethical practices.</li>
-              </ul>
-              <p className="text-gray-800 mt-4">Choosing us means choosing experience, trust, and results.</p>
-              <div className="mt-4">
-                <a href="#contact" className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors text-sm font-semibold">Work With Us</a>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-6">
-          <Card className={`border-2 hover:border-primary/20 hover:shadow-lg transition-all ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Article 1: Most In-Demand Jobs in the Middle East / Russia for 2025</h3>
-              <p className="text-gray-700 mb-3">Energy investments and infrastructure create strong demand across both regions.</p>
-              <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-                <li><span className="font-semibold">Engineers</span> – Mechanical, Civil, Electrical. Skills: PM, design tools.</li>
-                <li><span className="font-semibold">QA/QC Inspectors</span> – Certifications: CSWIP, NACE/AMPP, BGAS, ISO, ASNT, IWE.</li>
-                <li><span className="font-semibold">Skilled Technicians & Welders</span> – Pipe Fitters, 6G Welders, Fabricators, etc.</li>
-                <li><span className="font-semibold">HSE Professionals</span> – NEBOSH, IOSH, OSHA. Oil & Gas, Construction, Manufacturing.</li>
-                <li><span className="font-semibold">Hospitality & Services</span> – Roles in Gulf and a growing market in Russia.</li>
-              </ol>
-              <p className="text-gray-800 mt-4">We connect Indian professionals with genuine employers across these roles.</p>
-            </CardContent>
-          </Card>
-
-          <Card className={`border-2 hover:border-primary/20 hover:shadow-lg transition-all ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Article 2: Visa Process for Gulf & Russia Jobs – A Complete Guide</h3>
-              <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-                <li><span className="font-semibold">Offer Letter</span> – confirms role, salary, and terms.</li>
-                <li><span className="font-semibold">Medical Examination</span> – GAMCA/GCC for Gulf; govt-approved clinics for Russia.</li>
-                <li><span className="font-semibold">Visa Processing</span> – employer initiates; agency coordinates documents.</li>
-                <li><span className="font-semibold">Visa Stamping / Employment Visa</span> – embassy stamping or e-visa.</li>
-                <li><span className="font-semibold">Travel & Deployment</span> – fly to destination and onboard.</li>
-              </ol>
-              <div className="mt-3 text-gray-700">
-                <div className="font-semibold mb-1">Quick Tips</div>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Passport validity of 6+ months</li>
-                  <li>Keep documents accurate and ready</li>
-                  <li>Follow agency guidance to avoid delays</li>
-                  <li>Account for country-specific requirements</li>
-                </ul>
-              </div>
-              <p className="text-gray-800 mt-4">We assist candidates at every stage — from selection to deployment.</p>
-              <div className="mt-4">
-                <a href="#contact" className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition-colors text-sm font-semibold">Get Help with Visa</a>
-              </div>
-            </CardContent>
-          </Card>
+                </div>
+              </a>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
 
