@@ -55,10 +55,10 @@ const faqsData = {
         question: 'What documents do I need to provide?',
         answer: 'You will need to provide your resume, educational certificates, work experience certificates, passport copy, and any relevant skill certifications. We will guide you through the complete documentation process.'
       },
-      {
-        question: 'Do you charge candidates any fees?',
-        answer: 'Our recruitment services are free for candidates. We are paid by our clients (employers) for successful placements. However, candidates are responsible for their own visa and travel expenses as per standard industry practices.'
-      },
+      // {
+      //   question: 'Do you charge candidates any fees?',
+      //   answer: 'Our recruitment services are free for candidates. We are paid by our clients (employers) for successful placements. However, candidates are responsible for their own visa and travel expenses as per standard industry practices.'
+      // },
       {
         question: 'How long does the recruitment process take?',
         answer: 'The recruitment process typically takes 2-4 weeks from initial application to final selection, depending on the specific requirements and client timelines. We keep candidates informed throughout the process.'
@@ -79,10 +79,10 @@ const faqsData = {
         question: 'How do you source candidates?',
         answer: 'We maintain an extensive database of qualified candidates and use multiple sourcing channels including job portals, social media, referrals, and direct recruitment. Our IT-enabled system ensures easy access to candidate information and quick matching.'
       },
-      {
-        question: 'What is your pricing structure?',
-        answer: 'Our pricing is competitive and varies based on the type of positions, number of candidates required, and specific requirements. We offer transparent pricing with no hidden costs. Contact us for a detailed quote tailored to your needs.'
-      },
+      // {
+      //   question: 'What is your pricing structure?',
+      //   answer: 'Our pricing is competitive and varies based on the type of positions, number of candidates required, and specific requirements. We offer transparent pricing with no hidden costs. Contact us for a detailed quote tailored to your needs.'
+      // },
       {
         question: 'How quickly can you provide candidates?',
         answer: 'We can typically provide qualified candidates within 1-2 weeks for most positions, thanks to our extensive database and efficient sourcing processes. For specialized roles, the timeline may be slightly longer.'

@@ -61,10 +61,10 @@ export default function RecruitmentPage() {
               <p className="text-xl opacity-90 mb-6">{description}</p>
               
               <div className="flex items-center space-x-6">
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <Users className="h-5 w-5 mr-2" />
                   <span>{totalPositions}+ Positions Available</span>
-                </div>
+                </div> */}
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 mr-2" />
                   <span>Gulf & Middle East</span>
@@ -97,7 +97,6 @@ export default function RecruitmentPage() {
                       <Users className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">{cat.name}</h3>
-                    <p className="text-sm text-gray-600">{cat.positions.length} positions</p>
                   </CardContent>
                 </Card>
               ))}
@@ -115,7 +114,6 @@ export default function RecruitmentPage() {
                   <CardContent className="p-0">
                     <div className="px-5 pt-5 pb-4 bg-gradient-to-r from-gray-50 to-white">
                       <h3 className="text-base font-semibold text-gray-900">{col.name}</h3>
-                      <p className="text-xs text-gray-500 mt-1">{col.positions.length} positions</p>
                     </div>
                     <div className="px-5 pb-5">
                       <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">

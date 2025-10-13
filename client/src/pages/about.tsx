@@ -36,8 +36,8 @@ export default function About() {
               </div>
               <div className="h-[250px] md:h-[300px] lg:h-[350px]">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                  alt="Professional recruitment and HR services"
+                  src="https://images.unsplash.com/photo-1516542076529-1ea3854896f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="Team collaboration in recruitment and HR services"
                   className="rounded-xl shadow-lg w-full h-full object-cover"
                   loading="lazy"
                   width="1200"

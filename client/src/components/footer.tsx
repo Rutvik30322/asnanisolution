@@ -90,7 +90,7 @@ export function Footer() {
             <a href="https://facebook.com/asnanihr" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
               <Facebook className="h-6 w-6" />
             </a>
-            <a href="https://instagram.com/asnanihr" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
+            <a href="https://www.instagram.com/asnanihrsolution/?igsh=MWc4djF5NnFzNWZyMw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
               <Instagram className="h-6 w-6" />
             </a>
             <a href="https://linkedin.com/company/asnanihr" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="LinkedIn">
