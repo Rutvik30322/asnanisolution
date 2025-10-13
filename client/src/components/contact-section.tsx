@@ -134,7 +134,7 @@ export function ContactSection() {
                   <Facebook className="h-6 w-6" />
                 </a>
                 <a 
-                  href="https://instagram.com/asnanihr" 
+                  href="https://www.instagram.com/asnanihrsolution/?igsh=MWc4djF5NnFzNWZyMw%3D%3D" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Instagram"
