@@ -71,7 +71,7 @@ const faqsData = {
   },
   'client-faqs': {
     title: 'For Clients',
-    description: 'Information about our services, pricing, timelines, and how we can help your business.',
+    description: 'Information about our services, timelines, and how we can help your business.',
     icon: Clock,
     color: 'bg-purple-600',
     faqs: [
