@@ -24,7 +24,7 @@ const faqCards: FaqCard[] = [
   },
   {
     title: 'For Clients',
-    description: 'Sourcing speed, pricing and guarantees explained.',
+    description: 'Sourcing speed, guarantees explained.',
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop',
     slug: 'client-faqs',
   },
