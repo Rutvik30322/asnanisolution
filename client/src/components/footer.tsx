@@ -87,7 +87,7 @@ export function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
           <div className="flex justify-center space-x-6 mb-4">
-            <a href="https://facebook.com/asnanihr" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
+            <a href="https://www.facebook.com/Asnanihrsolution?mibextid=wwXIfr&rdid=W2w5bJ8cK2aNYNzm&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19vr9TmxsX%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
               <Facebook className="h-6 w-6" />
             </a>
             <a href="https://www.instagram.com/asnanihrsolution/?igsh=MWc4djF5NnFzNWZyMw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">

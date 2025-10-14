@@ -125,7 +125,7 @@ export function ContactSection() {
                   <Linkedin className="h-6 w-6" />
                 </a>
                 <a 
-                  href="https://www.facebook.com/asnanihr" 
+                  href="https://www.facebook.com/Asnanihrsolution?mibextid=wwXIfr&rdid=W2w5bJ8cK2aNYNzm&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19vr9TmxsX%2F%3Fmibextid%3DwwXIfr" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Facebook"
