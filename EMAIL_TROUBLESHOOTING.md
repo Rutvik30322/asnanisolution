@@ -4,6 +4,19 @@
 
 If the contact form email functionality is not working on your Render deployment, follow these steps to diagnose and fix the issue.
 
+## For GoDaddy Email Users
+
+If you're using GoDaddy email (info@asnanihr.in), ensure you're using the correct SMTP settings:
+
+- **SMTP Server**: smtpout.secureserver.net
+- **Port**: 465 (SSL required)
+- **Encryption**: SSL/TLS
+- **Authentication**: Required
+- **Username**: Your full email address (info@asnanihr.in)
+- **Password**: Your email account password
+
+GoDaddy may require you to enable SMTP access in your account settings. If you're having trouble sending emails, check your GoDaddy account settings to ensure SMTP is enabled.
+
 ## Step 1: Verify API Routes Are Working
 
 First, check if the API routes are accessible:
@@ -43,20 +56,21 @@ This will show:
 - SMTP connection test results
 - Any errors encountered
 
-## Step 3: Verify Gmail Settings
+## Step 3: Verify Email Provider Settings
 
-### App Password
+### For Gmail Users
 
-For Gmail, you MUST use an app password, not your regular password:
+If you're using Gmail instead of GoDaddy, you MUST use an app password, not your regular password:
 
 1. Go to your Google Account > Security > App passwords
 2. Generate a new app password for "Mail" and your device
 3. Update the `SMTP_PASS` environment variable in Render with this password
 
-### Gmail-Specific Configuration
+### Email Provider-Specific Configuration
 
-The application automatically applies Gmail-specific settings:
+The application automatically applies specific settings based on your email provider:
 
+For Gmail:
 ```typescript
 if (host.includes('gmail')) {
  // console.log('Using Gmail-specific settings');
@@ -68,10 +82,16 @@ if (host.includes('gmail')) {
 }
 ```
 
+For GoDaddy:
+The default settings should work correctly:
+- Host: smtpout.secureserver.net
+- Port: 465
+- Secure: true
+
 This ensures:
-- Port 465 is used (required for Gmail with SSL)
-- Secure connection is enabled
-- Gmail service is specified
+- Correct port is used for your email provider
+- Secure connection is enabled when required
+- Proper authentication is configured
 
 ## Step 4: Test Email Sending
 
@@ -136,19 +156,28 @@ If you need to update environment variables:
 5. Click "Save Changes"
 6. Redeploy your application
 
-## Step 8: Gmail Account Security
+## Step 8: Email Account Security
 
-Check your Gmail account for security alerts:
+Check your email account for security alerts:
 
+For Gmail:
 1. Log in to your Gmail account
 2. Look for any security alerts or notifications
 3. If prompted, confirm that the login attempt from Render was legitimate
 4. Consider temporarily lowering your Gmail security settings for testing
+
+For GoDaddy:
+1. Log in to your GoDaddy account
+2. Check if there are any security notifications
+3. Ensure that SMTP access is enabled for your email account
+4. Verify that your IP address is not blocked
 
 ## Need More Help?
 
 If you're still experiencing issues:
 
 1. Check the application logs for detailed error messages
-2. Try using a different email provider temporarily to isolate Gmail-specific issues
+2. Try using a different email provider temporarily to isolate issues
 3. Contact Render support if you suspect platform-specific restrictions
+4. For GoDaddy users, check the GoDaddy help center for SMTP configuration guides
+5. Ensure your GoDaddy email account is not suspended or restricted

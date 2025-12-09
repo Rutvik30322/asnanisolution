@@ -10,17 +10,17 @@ services:
       - key: PORT
         value: 10000
       - key: OWNER_EMAIL
-        sync: false
+        value: info@asnanihr.in
       - key: FROM_EMAIL
-        sync: false
+        value: info@asnanihr.in
       - key: SMTP_HOST
-        sync: false
+        value: smtpout.secureserver.net
       - key: SMTP_PORT
-        sync: false
+        value: 465
       - key: SMTP_SECURE
-        sync: false
+        value: true
       - key: SMTP_USER
-        sync: false
+        value: info@asnanihr.in
       - key: SMTP_PASS
         sync: false # Set secret in Render dashboard
     healthCheckPath: /
