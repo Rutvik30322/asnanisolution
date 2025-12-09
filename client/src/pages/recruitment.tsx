@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import { getCategoryBySlug } from '@/data/recruitment';
+import { SEO } from '@/components/seo';
 
 export default function RecruitmentPage() {
   const [, setLocation] = useLocation();
@@ -41,6 +42,12 @@ export default function RecruitmentPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={`${title} Jobs | Asnani HR Solutions`}
+        description={`Explore ${title.toLowerCase()} job opportunities with Asnani HR Solutions. Find positions in Gulf & Middle East markets.`}
+        keywords={`${title.toLowerCase()}, recruitment, jobs, Gulf, Middle East, manpower, hr solutions`}
+        image={image}
+      />
       {/* Header */}
       <div className={`bg-gradient-to-r ${color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

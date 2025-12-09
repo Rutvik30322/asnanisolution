@@ -11,10 +11,12 @@ import { BlogSection } from '@/components/blog-section';
 import { FAQSection } from '@/components/faq-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
+import { SEO } from '@/components/seo';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <SEO />
       <Navigation />
       <HeroSection />
       <AboutSection />

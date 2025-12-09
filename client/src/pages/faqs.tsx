@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer';
 import { ArrowLeft, HelpCircle, FileText, Clock, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link, useRoute } from 'wouter';
 import { useEffect, useState } from 'react';
+import { SEO } from '@/components/seo';
 
 const faqsData = {
   'general-faqs': {
@@ -159,6 +160,11 @@ export default function FAQs() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={`${faqData.title} | Asnani HR Solutions`}
+        description={faqData.description}
+        keywords={`${faqData.title.toLowerCase()}, faqs, recruitment, hr solutions, job questions`}
+      />
       <Navigation />
       
       {/* Back Button */}

@@ -2,10 +2,16 @@ import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'wouter';
+import { SEO } from '@/components/seo';
 
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-900">
+      <SEO 
+        title="About Asnani HR Solutions | Premier Manpower Consultancy"
+        description="Learn about Asnani HR Solutions, a global manpower consultancy connecting talent with opportunities across Gulf, Russia, and international markets."
+        keywords="about us, manpower consultancy, recruitment agency, Gulf jobs, international recruitment, HR solutions"
+      />
       <Navigation />
       
       {/* Back Button */}
