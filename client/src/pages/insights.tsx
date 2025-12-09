@@ -3,6 +3,7 @@ import { Footer } from '@/components/footer';
 import { ArrowLeft, TrendingUp, BookOpen, Target, Users } from 'lucide-react';
 import { Link, useRoute } from 'wouter';
 import { useEffect, useState } from 'react';
+import { SEO } from '@/components/seo';
 
 const insightsData = {
   'how-to-get-a-job-gulf-russia': {
@@ -128,6 +129,11 @@ export default function Insights() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={`${insightData.title} | Asnani HR Solutions Insights`}
+        description={insightData.description}
+        keywords={`${insightData.title.toLowerCase()}, recruitment insights, job market, gulf jobs, russia jobs, hr solutions`}
+      />
       <Navigation />
       
       {/* Back Button */}
